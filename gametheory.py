@@ -78,7 +78,7 @@ class Generalised_Game():
 		print('HH_payoff:' ,self.a, 'HT_payoff: ', self.b, 'TT_payoff: ', self.c)
 		print("player's wealth ", self.player_wealth, "house's wealth ", self.house_wealth)
 
-# if __name__ == "__main__":
-# 	A = Generalised_Game(0.3, 0.3, 1000, 10, 5, 1)
-# 	A.main()
+if __name__ == "__main__":
+	B = Generalised_Game(0.3, 0.3, 10000, 18, 5, 1)
+	B.main()
 
