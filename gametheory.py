@@ -42,3 +42,43 @@ class Game():
 # 	A = Game(0, 0, 1000)
 # 	A.main()
 
+
+class Generalised_Game():
+	def __init__(self, P_house_H, P_player_H, B, HH_payoff, HT_payoff, TT_payoff):
+
+		self.player_wealth = 0
+		self.house_wealth = 0
+		self.P_player_H = P_player_H
+		self.P_house_H = P_house_H
+		self.B = B
+		self.a = HH_payoff
+		self.b = HT_payoff
+		self.c = TT_payoff
+
+
+	def game(self,player, house):
+		
+		for i in range(self.B):
+			if player[i] == 'T' == house[i]:
+				self.player_wealth += self.c
+				self.house_wealth -= self.c
+			elif player[i] == 'H' == house[i]:
+				self.player_wealth += self.a
+				self.house_wealth -= self.a
+			else:
+				self.player_wealth-= self.b
+				self.house_wealth+= self.b
+
+	def main(self):
+
+		player = np.random.choice(['H', 'T'], self.B, p=[self.P_player_H, 1-self.P_player_H])
+		house = np.random.choice(['H', 'T'], self.B, p=[self.P_house_H,1-self.P_house_H])
+
+		self.game(player,house)
+		print('HH_payoff:' ,self.a, 'HT_payoff: ', self.b, 'TT_payoff: ', self.c)
+		print("player's wealth ", self.player_wealth, "house's wealth ", self.house_wealth)
+
+# if __name__ == "__main__":
+# 	A = Generalised_Game(0.3, 0.3, 1000, 10, 5, 1)
+# 	A.main()
+
